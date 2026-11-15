@@ -43,6 +43,7 @@ class InstallerTests(unittest.TestCase):
     def test_windows_owner_accepts_administrators_only_for_elevated_token(self):
         current = 'S-1-5-21-123-456-789-1001'
         self.assertTrue(credential_store._windows_owner_allowed(current, current))
+        self.assertTrue(credential_store._windows_owner_allowed('S-1-5-18', current))
         self.assertFalse(credential_store._windows_owner_allowed('S-1-5-21-999', current))
         with patch.object(credential_store.ctypes, 'WinDLL', create=True) as dll:
             check = dll.return_value.IsUserAnAdmin

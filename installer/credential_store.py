@@ -42,7 +42,9 @@ def _current_user_sid() -> str:
 
 
 def _windows_owner_allowed(owner_sid: str, current_sid: str) -> bool:
-    if owner_sid == current_sid:
+    # SYSTEM-owned Windows profiles are valid parents. SYSTEM already has
+    # authority over this process; accepting its ownership adds no new writer.
+    if owner_sid in (current_sid, 'S-1-5-18'):
         return True
     # Elevated Windows tokens may default new objects to the Administrators
     # group. Accept that owner only when this process actually has an enabled
@@ -64,7 +66,7 @@ def validate_directory_owner(directory: Path) -> None:
         raise CredentialError('The selected parent is not a directory.')
     if os.name != 'nt':
         if directory.stat().st_uid != os.getuid():
-            raise CredentialError('The selected parent directory must be owned by the current user.')
+            raise CredentialError(f'The selected parent directory has an unsupported owner: {directory}')
         return
     advapi = ctypes.WinDLL('advapi32', use_last_error=True)
     kernel = ctypes.WinDLL('kernel32', use_last_error=True)
@@ -85,7 +87,7 @@ def validate_directory_owner(directory: Path) -> None:
         if not stringify(sid, ctypes.byref(text)):
             raise CredentialError('Unable to inspect the selected parent directory owner.')
         if not _windows_owner_allowed(ctypes.wstring_at(text), _current_user_sid()):
-            raise CredentialError('The selected parent directory must be owned by the current user.')
+            raise CredentialError(f'The selected parent directory has an unsupported owner: {directory}')
     finally:
         if text:
             kernel.LocalFree(text)
