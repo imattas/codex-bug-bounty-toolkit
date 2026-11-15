@@ -41,6 +41,21 @@ def _current_user_sid() -> str:
     return sid
 
 
+def _windows_owner_allowed(owner_sid: str, current_sid: str) -> bool:
+    if owner_sid == current_sid:
+        return True
+    # Elevated Windows tokens may default new objects to the Administrators
+    # group. Accept that owner only when this process actually has an enabled
+    # administrator token; never accept arbitrary group or user owners.
+    if owner_sid != 'S-1-5-32-544':
+        return False
+    shell = ctypes.WinDLL('shell32', use_last_error=True)
+    check = shell.IsUserAnAdmin
+    check.argtypes = []
+    check.restype = wintypes.BOOL
+    return bool(check())
+
+
 def validate_directory_owner(directory: Path) -> None:
     """Validate a writable parent without changing its existing ACL or mode."""
     directory = Path(directory)
@@ -69,7 +84,7 @@ def validate_directory_owner(directory: Path) -> None:
     try:
         if not stringify(sid, ctypes.byref(text)):
             raise CredentialError('Unable to inspect the selected parent directory owner.')
-        if ctypes.wstring_at(text) != _current_user_sid():
+        if not _windows_owner_allowed(ctypes.wstring_at(text), _current_user_sid()):
             raise CredentialError('The selected parent directory must be owned by the current user.')
     finally:
         if text:

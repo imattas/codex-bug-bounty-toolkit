@@ -40,6 +40,17 @@ def permissions(path):
 
 
 class InstallerTests(unittest.TestCase):
+    def test_windows_owner_accepts_administrators_only_for_elevated_token(self):
+        current = 'S-1-5-21-123-456-789-1001'
+        self.assertTrue(credential_store._windows_owner_allowed(current, current))
+        self.assertFalse(credential_store._windows_owner_allowed('S-1-5-21-999', current))
+        with patch.object(credential_store.ctypes, 'WinDLL', create=True) as dll:
+            check = dll.return_value.IsUserAnAdmin
+            check.return_value = 0
+            self.assertFalse(credential_store._windows_owner_allowed('S-1-5-32-544', current))
+            check.return_value = 1
+            self.assertTrue(credential_store._windows_owner_allowed('S-1-5-32-544', current))
+
     def test_config_writes_keep_existing_home_and_config_parent_permissions(self):
         with tempfile.TemporaryDirectory() as tmp:
             home = Path(tmp)
