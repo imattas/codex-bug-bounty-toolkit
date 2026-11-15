@@ -291,8 +291,8 @@ class RuntimeTests(unittest.TestCase):
 
     def test_missing_python311_is_junction_method_preserves_path_checks(self):
         # Simulate the advertised Python 3.11 API on the available interpreter.
-        with patch.object(Path, 'is_junction', None):
-            self.assertEqual(runtime.confined_path(self.project, 'evidence'), self.project / 'evidence')
+        with patch.object(Path, 'is_junction', None, create=True):
+            self.assertEqual(runtime.confined_path(self.project, 'evidence'), (self.project / 'evidence').resolve())
             self.assertEqual(runtime.budget_status(self.project)['used'], 0)
             with self.assertRaises(runtime.RuntimePolicyError):
                 runtime.confined_path(self.project, '..', 'outside')
