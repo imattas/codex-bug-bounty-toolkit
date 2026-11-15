@@ -1,0 +1,2 @@
+# Optional isolated browser adapter; no auto-install or browser download at runtime.
+playwright>=1.57,<2

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Bug Bounty - Codex Daybreak Blue"
+  short_description: "Triage and bundle qualifying bounty findings"
+  default_prompt: "Use $bug-bounty with Codex's active guardrails; check scope, actionability and duplicates before creating a finding bundle in the required report frame."
+policy:
+  allow_implicit_invocation: true

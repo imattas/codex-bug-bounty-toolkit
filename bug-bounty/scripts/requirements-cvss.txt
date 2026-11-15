@@ -1,0 +1,2 @@
+# Optional adapter dependency, not required by cvss31.py or openapi_inventory.py.
+cvss==3.6

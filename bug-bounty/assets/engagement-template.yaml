@@ -1,0 +1,47 @@
+# Copy into the engagement project. Empty values are unknown, not authorization.
+schema_version: 1
+engagement_id: ""
+program:
+  name: ""
+  policy_sources: [] # Entries: url_or_path, captured_at_utc, relevant_section, quotation
+  required_cvss_version: ""
+workflow:
+  mode: advisory # advisory | assisted | autonomous | mixed
+  phase_modes: {} # For mixed mode, e.g. investigation: autonomous, reporting: advisory
+  mode_history: []
+reporting:
+  profile: "codex-daybreak-blue"
+  external_cvss_version: "4.0"
+  candidates_directory: ".bug-bounty/candidates"
+  findings_directory: "findings"
+  require_scope_validation_actionability_duplicate_gates: true
+authorization:
+  basis: "" # User instruction and applicable program permission
+  submission_authorized: false
+  disclosure_terms: ""
+scope: [] # Entries: asset_or_technique, status, source, reasoning, restrictions, checked_at_utc
+limits:
+  max_requests: null
+  requests_per_minute: null
+  concurrency: null
+  timeout_seconds: null
+  max_retries: null
+  end_at_utc: null
+  source_and_rationale: ""
+accounts: [] # Entries: label, role, tenant, owned_objects, credential_reference; NO secret values
+hypotheses: [] # Entries: id, boundary, prerequisite, test, control, state, result, evidence_ids
+evidence: [] # Entries: id, path, captured_at_utc, source, actor, redactions
+findings: [] # Accepted entries: id, bundle_path, report_path, assessment_path, root_cause_key
+candidates: [] # Entries: id, notes_path, decision, blockers; excluded/info/duplicates stay here
+cleanup: [] # Entries: owned_object, change, cleanup_action, status
+checkpoint:
+  last_updated_at_utc: ""
+  policy_last_checked_at_utc: ""
+  requests_used: 0
+  active_elapsed_seconds: 0
+  retries_used: 0
+  per_test_budget_usage: [] # Entries: hypothesis_id, requests_used, retries_used, active_elapsed_seconds
+  budget_accounting_note: "" # Define global/per-test limits; counters remain cumulative across resume
+  completed_work: []
+  blocked_actions: []
+  next_actions: []

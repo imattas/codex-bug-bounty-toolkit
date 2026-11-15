@@ -1,0 +1,7 @@
+{
+  "reference": "RedHatProductSecurity/cvss",
+  "reference_package_version": "3.6",
+  "base_vectors_compared": 2592,
+  "mismatches": 0,
+  "note": "Offline numeric comparison only; does not validate metric choice or target claims."
+}

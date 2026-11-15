@@ -1,0 +1,69 @@
+name: Validate and release toolkit
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing immutable Git tag to release
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag || github.ref }}
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Install validation dependencies
+        run: python -m pip install -e ./hackerone-mcp -r bug-bounty/scripts/requirements-cvss.txt -r bug-bounty/scripts/requirements-browser.txt
+      - name: Install real Chromium for Windows boundary tests
+        if: runner.os == 'Windows'
+        run: python -m playwright install chromium
+      - name: Validate skill and MCP
+        env:
+          BUG_BOUNTY_REAL_BROWSER: ${{ runner.os == 'Windows' && '1' || '0' }}
+        run: |
+          python -B tools/check_all.py
+      - name: Validate POSIX shell syntax
+        if: runner.os == 'Linux'
+        run: sh -n install.sh
+      - name: Validate PowerShell syntax
+        shell: pwsh
+        run: |
+          $tokens = $null
+          $parseErrors = $null
+          [System.Management.Automation.Language.Parser]::ParseFile((Join-Path $PWD 'install.ps1'), [ref]$tokens, [ref]$parseErrors) | Out-Null
+          if ($parseErrors.Count) { throw ($parseErrors | Out-String) }
+
+  release:
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      TAG: ${{ inputs.tag || github.ref_name }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag || github.ref }}
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Build source archive and hash-bound installers
+        run: python tools/build_release.py --repository "https://github.com/$GH_REPO" --tag "$TAG" --output dist
+      - name: Publish reviewed tag assets
+        run: gh release create "$TAG" dist/* --verify-tag --title "$TAG" --notes "Interactive Codex/Claude installer, source toolkit and SHA-256 checksums. Live HackerOne writes are disabled by default."

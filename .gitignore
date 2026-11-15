@@ -1,0 +1,24 @@
+# Runtime dependencies, local credentials and private engagement records.
+**/.venv/
+.validation-deps/
+.mcp-deps/
+.browser-deps/
+.browser-binaries/
+.developer-tools/
+.hackerone-data/
+engagements/
+artifacts/
+dist/
+sources/
+bug-bounty/evaluations/*results.md
+**/__pycache__/
+**/*.pyc
+**/*.egg-info/
+**/build/
+.env
+.env.*
+!.env.example
+.codex/config.toml
+sources/
+**/*.sqlite3
+**/*.db

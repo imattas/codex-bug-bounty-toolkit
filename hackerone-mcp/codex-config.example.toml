@@ -1,0 +1,14 @@
+# Install this package into the interpreter below before using this example.
+# Set H1_USERNAME and H1_API_TOKEN in the parent application's environment.
+# No plaintext credentials belong in this file.
+[mcp_servers.hackerone]
+command = 'C:\absolute\toolkit\.venv\Scripts\python.exe'
+args = ['-m', 'hackerone_mcp']
+env_vars = ['H1_USERNAME', 'H1_API_TOKEN']
+tool_timeout_sec = 300
+
+[mcp_servers.hackerone.env]
+H1_DATA_DIR = 'C:\absolute\private\hackerone-data'
+H1_ENABLE_WRITES = 'false'
+BUG_BOUNTY_SKILL_DIR = 'C:\absolute\toolkit\bug-bounty'
+BUG_BOUNTY_PROJECT_ROOT = 'C:\absolute\engagements'

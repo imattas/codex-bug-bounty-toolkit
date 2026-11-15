@@ -1,0 +1,388 @@
+{
+  "source": "User-supplied hackerai_default_config.zip; catalog only, no skill bodies",
+  "archive_sha256": "fe02f97ff3990ba7808cfd04e24760fdd3ffcd29b04287d7052cfeae5f33c8b1",
+  "status": "reference-only; entries are not installed capabilities",
+  "total": 53,
+  "by_category": {
+    "vulnerabilities": 30,
+    "technologies": 7,
+    "frameworks": 4,
+    "cloud": 4,
+    "protocols": 2,
+    "reconnaissance": 2,
+    "custom": 4
+  },
+  "skills": [
+    {
+      "n": 1,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/agentic_system_security",
+      "name": "agentic-system-security",
+      "description": "Security testing for authorized AI agents and MCP-style tool ecosystems, covering effective authority, tool/resource/prompt inventory, confused-deputy behavior, side-effect authorization, cross-tenant isolation, executable component supply chain, shadow integrations, and repeatable safety regression"
+    },
+    {
+      "n": 2,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/argument_injection",
+      "name": "argument-injection",
+      "description": "Test shell-free command argument injection across argv builders and CLI parsers, including option smuggling, response/config-file parsing, argument-boundary reparsing, and Windows Unicode-to-ANSI Best-Fit transformations"
+    },
+    {
+      "n": 3,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/authentication_jwt",
+      "name": "authentication-jwt",
+      "description": "JWT and OIDC security testing covering token forgery, algorithm confusion, and claim manipulation"
+    },
+    {
+      "n": 4,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/broken_function_level_authorization",
+      "name": "broken-function-level-authorization",
+      "description": "BFLA testing for action-level authorization failures across endpoints, admin functions, and API operations"
+    },
+    {
+      "n": 5,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/browser_security",
+      "name": "browser-security",
+      "description": "Browser-internals security testing for browsing-context relationships, postMessage, client-side path traversal, XS-Leaks, service workers, Web Workers, navigation behavior, CSP interactions, caches, and cross-origin state machines"
+    },
+    {
+      "n": 6,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/business_logic",
+      "name": "business-logic",
+      "description": "Business logic testing for workflow bypass, state manipulation, and domain invariant violations"
+    },
+    {
+      "n": 7,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/csrf",
+      "name": "csrf",
+      "description": "CSRF testing covering token bypass, SameSite cookies, CORS misconfigurations, and state-changing request abuse"
+    },
+    {
+      "n": 8,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/header_injection",
+      "name": "header-injection",
+      "description": "HTTP header injection testing covering CRLF / response splitting, cache poisoning, Host-header confusion, cookie fixation, and proxy / forwarding header smuggling"
+    },
+    {
+      "n": 9,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/http_request_smuggling",
+      "name": "http-request-smuggling",
+      "description": "HTTP request smuggling testing covering CL.TE, TE.CL, H2.CL, H2.TE, and HTTP/2 desync techniques with practical detection and exploitation methodology"
+    },
+    {
+      "n": 10,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/idor",
+      "name": "idor",
+      "description": "IDOR/BOLA testing for object-level authorization failures and cross-account data access"
+    },
+    {
+      "n": 11,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/information_disclosure",
+      "name": "information-disclosure",
+      "description": "Information disclosure testing covering error messages, debug endpoints, metadata leakage, and source exposure"
+    },
+    {
+      "n": 12,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/insecure_deserialization",
+      "name": "insecure-deserialization",
+      "description": "Insecure deserialization testing for Java, Python, PHP, .NET, Ruby, and Node.js covering gadget chains, type confusion, and safe validation"
+    },
+    {
+      "n": 13,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/insecure_file_uploads",
+      "name": "insecure-file-uploads",
+      "description": "File upload security testing covering extension bypass, content-type manipulation, and path traversal"
+    },
+    {
+      "n": 14,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/llm_prompt_injection",
+      "name": "llm-prompt-injection",
+      "description": "Deep testing for OWASP LLM01:2026 prompt injection in LLM, RAG, multimodal, memory, and tool-using applications, including direct/indirect injection, jailbreaks, instruction smuggling, and downstream impact validation. Use llm_applications for full OWASP 2026 LLM01-LLM10 coverage."
+    },
+    {
+      "n": 15,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/mass_assignment",
+      "name": "mass-assignment",
+      "description": "Mass assignment testing for unauthorized field binding and privilege escalation via API parameters"
+    },
+    {
+      "n": 16,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/nosql_injection",
+      "name": "nosql-injection",
+      "description": "NoSQL injection testing covering MongoDB operator injection, authentication bypass, blind extraction, GraphQL variable injection, and Redis/DynamoDB/Elasticsearch/Neo4j-specific attack surfaces"
+    },
+    {
+      "n": 17,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/open_redirect",
+      "name": "open-redirect",
+      "description": "Open redirect testing for phishing pivots, OAuth token theft, and allowlist bypass"
+    },
+    {
+      "n": 18,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/path_traversal_lfi_rfi",
+      "name": "path-traversal-lfi-rfi",
+      "description": "Path traversal and file inclusion testing for local/remote file access and code execution"
+    },
+    {
+      "n": 19,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/prototype_pollution",
+      "name": "prototype-pollution",
+      "description": "Client and server prototype pollution testing covering JavaScript object merge bugs, Node.js RCE chains, and filter bypasses"
+    },
+    {
+      "n": 20,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/query_language_injection",
+      "name": "query-language-injection",
+      "description": "Query-language injection testing for scalar search, filter, selector, and authorization inputs compiled into JSONPath, JMESPath, OData, Lucene, LDAP, Cypher, XPath, or similar expressions. Requires a per-sink four-cell balanced true/false matrix before generic spraying or no-issue closure"
+    },
+    {
+      "n": 21,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/race_conditions",
+      "name": "race-conditions",
+      "description": "Race condition testing for TOCTOU bugs, double-spend, and concurrent state manipulation"
+    },
+    {
+      "n": 22,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/rce",
+      "name": "rce",
+      "description": "RCE testing covering command injection, deserialization, template injection, and code evaluation"
+    },
+    {
+      "n": 23,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/semantic_confusion",
+      "name": "semantic-confusion",
+      "description": "Cross-component semantic confusion testing for parser differentials, normalization mismatches, email and IDNA identity drift, overloaded fields, lifecycle state drift, internal redirects, protocol translation, and validator-to-sink inconsistencies"
+    },
+    {
+      "n": 24,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/sql_injection",
+      "name": "sql-injection",
+      "description": "SQL injection testing covering union, blind, error-based, and ORM bypass techniques"
+    },
+    {
+      "n": 25,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/ssrf",
+      "name": "ssrf",
+      "description": "SSRF testing for cloud metadata access, internal service discovery, and protocol smuggling"
+    },
+    {
+      "n": 26,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/ssti",
+      "name": "ssti",
+      "description": "Server-side template injection across Jinja / Mako / Velocity / Freemarker / Thymeleaf / Twig / Handlebars / EJS / ERB with engine fingerprinting, sandbox escape, and RCE gadget chains"
+    },
+    {
+      "n": 27,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/subdomain_takeover",
+      "name": "subdomain-takeover",
+      "description": "Subdomain takeover testing for dangling DNS records and unclaimed cloud resources"
+    },
+    {
+      "n": 28,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/weak_password_detection",
+      "name": "weak-password-detection",
+      "description": "Weak password detection, credential stuffing, and brute-force testing using common passwords, system-generated credentials, and HTTP fuzzing / NSE brute-force tooling"
+    },
+    {
+      "n": 29,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/xss",
+      "name": "xss",
+      "description": "XSS and HTML injection testing covering reflected, stored, DOM-based, and normalization-dependent vectors"
+    },
+    {
+      "n": 30,
+      "category": "vulnerabilities",
+      "id": "vulnerabilities/xxe",
+      "name": "xxe",
+      "description": "XXE testing for external entity injection, file disclosure, and SSRF via XML parsers"
+    },
+    {
+      "n": 31,
+      "category": "technologies",
+      "id": "technologies/active_directory",
+      "name": "active_directory",
+      "description": "Active Directory / Kerberos domain testing covering roasting, delegation abuse, AD CS (ESC1-ESC17), NTLM coercion+relay, DACL abuse, and credential dumping"
+    },
+    {
+      "n": 32,
+      "category": "technologies",
+      "id": "technologies/auth0",
+      "name": "auth0",
+      "description": "Auth0 tenant security testing covering misconfigured rules/actions, scope escalation, MFA bypass, and cross-application token confusion"
+    },
+    {
+      "n": 33,
+      "category": "technologies",
+      "id": "technologies/electron_desktop_apps",
+      "name": "electron-desktop-apps",
+      "description": "Test Electron desktop applications across renderer, preload, IPC, main-process, navigation, custom-protocol, storage, permission, and update trust boundaries; use for packaged Electron apps, ASAR review, web-to-native capability analysis, and Electron-specific exploit chains"
+    },
+    {
+      "n": 34,
+      "category": "technologies",
+      "id": "technologies/firebase",
+      "name": "firebase",
+      "description": "Firebase security testing covering Firestore, Storage rules, Realtime Database, Auth, Functions, and client-side trust issues"
+    },
+    {
+      "n": 35,
+      "category": "technologies",
+      "id": "technologies/grafana_prometheus",
+      "name": "grafana_prometheus",
+      "description": "Grafana, Prometheus, Alertmanager and exporter security testing - turning exposed observability into SSRF, credential theft, RCE, and lateral movement into the internal network"
+    },
+    {
+      "n": 36,
+      "category": "technologies",
+      "id": "technologies/llm_applications",
+      "name": "llm-applications",
+      "description": "End-to-end security testing for LLM, RAG, embedding, agent, and model-serving applications. Covers the OWASP Top 10 for LLM Applications 2026 (LLM01-LLM10): prompt injection, sensitive disclosure, excessive agency, supply chain, data/model poisoning, unbounded consumption, misinformation, hidden context exposure, vector weaknesses, and improper output handling. Use for architecture mapping, source review, black-box testing, and complete LLM application assessments."
+    },
+    {
+      "n": 37,
+      "category": "technologies",
+      "id": "technologies/supabase",
+      "name": "supabase",
+      "description": "Supabase security testing covering Row Level Security, PostgREST, Edge Functions, and service key exposure"
+    },
+    {
+      "n": 38,
+      "category": "frameworks",
+      "id": "frameworks/django",
+      "name": "django",
+      "description": "Security testing playbook for Django applications covering ORM injection, middleware gaps, auth/session flaws, and template issues"
+    },
+    {
+      "n": 39,
+      "category": "frameworks",
+      "id": "frameworks/fastapi",
+      "name": "fastapi",
+      "description": "Security testing playbook for FastAPI applications covering ASGI, dependency injection, and API vulnerabilities"
+    },
+    {
+      "n": 40,
+      "category": "frameworks",
+      "id": "frameworks/nestjs",
+      "name": "nestjs",
+      "description": "Security testing playbook for NestJS applications covering guards, pipes, decorators, module boundaries, and multi-transport auth"
+    },
+    {
+      "n": 41,
+      "category": "frameworks",
+      "id": "frameworks/nextjs",
+      "name": "nextjs",
+      "description": "Security testing playbook for Next.js covering App Router, Server Actions, RSC, and Edge runtime vulnerabilities"
+    },
+    {
+      "n": 42,
+      "category": "cloud",
+      "id": "cloud/aws",
+      "name": "aws",
+      "description": "AWS cloud security testing covering IAM misconfigurations, S3 exposure, metadata abuse, and privilege escalation paths"
+    },
+    {
+      "n": 43,
+      "category": "cloud",
+      "id": "cloud/azure",
+      "name": "azure",
+      "description": "Microsoft Azure and Entra security testing covering RBAC, Privileged Identity Management, Conditional Access, service principals, managed identities, Storage SAS, Key Vault, workload escalation, and cross-plane privilege paths"
+    },
+    {
+      "n": 44,
+      "category": "cloud",
+      "id": "cloud/gcp",
+      "name": "gcp",
+      "description": "GCP cloud security testing covering IAM misconfigurations, public storage buckets, metadata abuse, and service account privilege escalation"
+    },
+    {
+      "n": 45,
+      "category": "cloud",
+      "id": "cloud/kubernetes",
+      "name": "kubernetes",
+      "description": "Kubernetes cluster security testing - RBAC, API exposure, container escapes, network policies, secrets, and supply chain"
+    },
+    {
+      "n": 46,
+      "category": "protocols",
+      "id": "protocols/graphql",
+      "name": "graphql",
+      "description": "GraphQL security testing covering introspection, resolver injection, batching attacks, and authorization bypass"
+    },
+    {
+      "n": 47,
+      "category": "protocols",
+      "id": "protocols/oauth",
+      "name": "oauth",
+      "description": "OAuth 2.0 and OIDC flow security testing covering redirect manipulation, token leakage, PKCE bypass, and client misconfiguration"
+    },
+    {
+      "n": 48,
+      "category": "reconnaissance",
+      "id": "reconnaissance/asset_discovery",
+      "name": "asset-discovery",
+      "description": "Passive asset and attack-surface discovery via certificate transparency, TLS SAN pivoting, passive DNS, and ASN/IP enumeration to find hosts beyond subdomain brute force"
+    },
+    {
+      "n": 49,
+      "category": "reconnaissance",
+      "id": "reconnaissance/infrastructure_lifecycle",
+      "name": "infrastructure-lifecycle",
+      "description": "Discovery and security analysis of abandoned or ownership-drifted infrastructure trusted by software, firmware, DNS, mail, update systems, packages, scripts, telemetry, and deployed agents"
+    },
+    {
+      "n": 50,
+      "category": "custom",
+      "id": "custom/api_spec_testing",
+      "name": "api_spec_testing",
+      "description": "Spec-driven API pentesting - systematically exercise every endpoint from an ingested OpenAPI/Swagger/Postman inventory for authz, injection, and business-logic flaws"
+    },
+    {
+      "n": 51,
+      "category": "custom",
+      "id": "custom/dependency_cve_scanning",
+      "name": "dependency-cve-scanning",
+      "description": "Supply-chain/SCA playbook for returning lockfile, scanner, advisory, and reachability evidence to the parent"
+    },
+    {
+      "n": 52,
+      "category": "custom",
+      "id": "custom/npx_confusion",
+      "name": "npx-confusion",
+      "description": "Test package and executable identity confusion in npx, npm exec, and bunx fallback, plus explicit auto-fetch runners such as pnpm/yarn dlx and deno run npm:, with runner-specific resolution analysis, registry-state controls, reporting gates, and false-positive elimination"
+    },
+    {
+      "n": 53,
+      "category": "custom",
+      "id": "custom/source_aware_sast",
+      "name": "source-aware-sast",
+      "description": "Practical source-aware SAST and AST playbook for opengrep, ast-grep, gitleaks, and trivy fs"
+    }
+  ]
+}

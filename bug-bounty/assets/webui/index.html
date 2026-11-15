@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Findings · Bug Bounty</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to findings</a>
+  <aside class="sidebar" aria-label="Workspace overview">
+    <a class="brand" href="/" aria-label="Bug Bounty home"><span class="brand-mark" aria-hidden="true">b.</span><span>bug bounty<span class="brand-sub">LOCAL WORKSPACE</span></span></a>
+    <div class="workspace-label">WORKSPACE</div>
+    <div class="nav-active"><span aria-hidden="true">▤</span> Findings <span id="nav-count" class="count">0</span></div>
+    <div class="sidebar-stats"><div><span class="stat-dot blue"></span>Actionable<span id="actionable-count">—</span></div><div><span class="stat-dot amber"></span>Held candidates<span id="held-count">—</span></div><div><span class="stat-dot green"></span>Manually submitted<span id="submitted-count">—</span></div></div>
+    <div class="sidebar-footer"><span class="local-dot"></span> Local only<p>Reports stay on your computer.<br>Submission is always manual.</p><div id="root-name"></div></div>
+  </aside>
+  <main id="workspace">
+    <header class="page-header"><div><div class="eyebrow">ENGAGEMENT WORKSPACE</div><h1>Findings</h1><p>Review the evidence. Keep the work moving.</p></div><button id="refresh" class="button secondary"><span aria-hidden="true">↻</span> Refresh</button></header>
+    <div id="notice" role="status" aria-live="polite" class="notice">Loading local findings…</div>
+    <section class="toolbar" aria-label="Finding filters"><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search findings, programs, or IDs" aria-label="Search findings"></label><label class="filter"><span>Program</span><select id="program" aria-label="Filter by program"><option value="">All programs</option></select></label><label class="filter"><span>Tracking</span><select id="status" aria-label="Filter by workflow status"><option value="">All statuses</option><option value="unreviewed">Unreviewed</option><option value="reviewed">Reviewed</option><option value="submitted">Submitted</option><option value="fixed">Fixed</option><option value="archived">Archived</option></select></label></section>
+    <div class="workspace-grid"><section class="finding-list" aria-label="Local findings"><div class="list-heading"><span>RECORDED FINDINGS & CANDIDATES</span><span id="visible-count"></span></div><div id="list"></div></section><section id="detail" class="detail" aria-label="Finding detail" aria-live="polite"><div class="detail-empty"><span class="empty-icon" aria-hidden="true">▤</span><h2>Your review starts here</h2><p>Select a finding to read its report,<br>inspect evidence, and track your review.</p></div></section></div>
+    <footer class="page-footer">Recorded triage gates and manual workflow tracking are separate. Saving here never submits a report.</footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "slug": "",
+  "program": "",
+  "root_cause_key": "",
+  "artifacts_reviewed": false,
+  "gates": {
+    "scope": {"status": "unresolved", "source": "", "checked_at": "", "rationale": ""},
+    "validation": {"status": "unconfirmed", "rationale": ""},
+    "actionability": {"status": "undetermined", "rationale": ""},
+    "duplicate": {"status": "not_checked", "checked_at": "", "sources": [], "reviewed_legacy_reports": [], "rationale": ""}
+  },
+  "report": {
+    "title": "",
+    "asset": "",
+    "weakness": "",
+    "severity": {"vector": "", "score": null},
+    "summary": "",
+    "setup": "",
+    "steps": [],
+    "expected": "",
+    "actual": "",
+    "references": [],
+    "impact": ""
+  },
+  "poc_files": [],
+  "evidence_files": []
+}

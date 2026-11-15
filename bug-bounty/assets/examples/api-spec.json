@@ -1,0 +1,62 @@
+{
+  "openapi": "3.1.0",
+  "security": [
+    {
+      "bearer": []
+    }
+  ],
+  "servers": [],
+  "paths": {
+    "/exports/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Training declaration only; no runtime observation"
+          }
+        }
+      }
+    },
+    "/admin/items/{id}": {
+      "delete": {
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Training declaration only; no runtime observation"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ]
+    }
+  },
+  "info": {
+    "title": "Fictional offline training inventory; not an authorized target",
+    "version": "1.0.0"
+  },
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}
